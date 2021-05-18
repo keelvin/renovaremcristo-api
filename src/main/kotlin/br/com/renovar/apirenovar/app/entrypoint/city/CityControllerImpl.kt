@@ -1,9 +1,9 @@
 package br.com.renovar.apirenovar.app.entrypoint.city
 
+import br.com.renovar.apirenovar.app.commons.AppCommons
+import br.com.renovar.apirenovar.app.commons.ResponseData
 import br.com.renovar.apirenovar.app.entrypoint.city.converters.CityRestConverter
 import br.com.renovar.apirenovar.app.entrypoint.city.models.CityRestModel
-import br.com.renovar.apirenovar.base.ResponseData
-import br.com.renovar.apirenovar.configurations.AppCommons
 import br.com.renovar.apirenovar.domain.city.usecase.FilterCityByNameUseCase
 import br.com.renovar.apirenovar.domain.city.usecase.FindAllCitiesUseCase
 import br.com.renovar.apirenovar.domain.city.usecase.FindCityByIdUseCase

@@ -1,7 +1,7 @@
 package br.com.renovar.apirenovar.app.dataprovider.person.repository
 
-import br.com.renovar.apirenovar.app.dataprovider.person.model.PersonModel
 import br.com.renovar.apirenovar.app.commons.BaseRepository
+import br.com.renovar.apirenovar.app.dataprovider.person.model.PersonModel
 import org.springframework.stereotype.Repository
 
 @Repository

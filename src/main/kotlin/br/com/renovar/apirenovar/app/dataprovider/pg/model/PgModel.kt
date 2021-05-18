@@ -3,20 +3,17 @@ package br.com.renovar.apirenovar.app.dataprovider.pg.model
 import br.com.renovar.apirenovar.app.commons.BaseModel
 import br.com.renovar.apirenovar.app.dataprovider.church.model.ChurchModel
 import br.com.renovar.apirenovar.app.dataprovider.city.model.CityModel
-import br.com.renovar.apirenovar.base.BaseEntity
 import com.fasterxml.jackson.annotation.JsonManagedReference
-import org.hibernate.annotations.*
+import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Parameter
+import org.hibernate.annotations.Type
 import javax.persistence.*
-import javax.persistence.CascadeType
-import javax.persistence.Entity
-import javax.persistence.Table
 
 @Entity
 @Table(name = "pg")
 class PgModel(
     @Id
-    @GenericGenerator(name = "PgGenerator", strategy = "br.com.renovar.apirenovar.base.PostgreSequenceStrategy", parameters = [
+    @GenericGenerator(name = "PgGenerator", strategy = "br.com.renovar.apirenovar.app.commons.PostgreSequenceStrategy", parameters = [
         Parameter(value = "pg_seq", name = "sequence")
     ])
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PgGenerator")

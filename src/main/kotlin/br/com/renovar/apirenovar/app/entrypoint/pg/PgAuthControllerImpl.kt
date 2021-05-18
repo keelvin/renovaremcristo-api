@@ -1,9 +1,9 @@
 package br.com.renovar.apirenovar.app.entrypoint.pg
 
+import br.com.renovar.apirenovar.app.commons.AppCommons
+import br.com.renovar.apirenovar.app.commons.ResponseData
 import br.com.renovar.apirenovar.app.entrypoint.pg.converters.PgAuthResponseRestConverter
 import br.com.renovar.apirenovar.app.entrypoint.pg.models.PgAuthResponseRestModel
-import br.com.renovar.apirenovar.base.ResponseData
-import br.com.renovar.apirenovar.configurations.AppCommons
 import br.com.renovar.apirenovar.domain.pg.usecase.pgauth.PgAuthenticateUseCase
 import br.com.renovar.apirenovar.domain.pg.usecase.pgauth.exceptions.AuthFailedException
 import org.springframework.beans.factory.config.ConfigurableBeanFactory

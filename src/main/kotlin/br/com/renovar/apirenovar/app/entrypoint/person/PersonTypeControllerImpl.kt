@@ -1,9 +1,9 @@
 package br.com.renovar.apirenovar.app.entrypoint.person
 
+import br.com.renovar.apirenovar.app.commons.AppCommons
+import br.com.renovar.apirenovar.app.commons.ResponseData
 import br.com.renovar.apirenovar.app.entrypoint.person.converters.PersonTypeRestConverter
 import br.com.renovar.apirenovar.app.entrypoint.person.models.PersonTypeRestModel
-import br.com.renovar.apirenovar.base.ResponseData
-import br.com.renovar.apirenovar.configurations.AppCommons
 import br.com.renovar.apirenovar.domain.person.usecase.FindAllPersonTypesUseCase
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
 import org.springframework.context.annotation.Scope

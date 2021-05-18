@@ -2,7 +2,6 @@ package br.com.renovar.apirenovar.app.entrypoint.person.converters
 
 import br.com.renovar.apirenovar.app.commons.RestConverter
 import br.com.renovar.apirenovar.app.entrypoint.church.converters.ChurchRestConverter
-import br.com.renovar.apirenovar.app.entrypoint.city.converters.CityRestConverter
 import br.com.renovar.apirenovar.app.entrypoint.city.converters.CityWithoutDistrictsRestConverter
 import br.com.renovar.apirenovar.app.entrypoint.city.converters.DistrictRestConverter
 import br.com.renovar.apirenovar.app.entrypoint.person.models.PersonRestModel

@@ -1,9 +1,9 @@
 package br.com.renovar.apirenovar.app.entrypoint.pgreport
 
+import br.com.renovar.apirenovar.app.commons.AppCommons
+import br.com.renovar.apirenovar.app.commons.ResponseData
 import br.com.renovar.apirenovar.app.entrypoint.pgreport.converters.PgReportRestConverter
 import br.com.renovar.apirenovar.app.entrypoint.pgreport.models.PgReportRestModel
-import br.com.renovar.apirenovar.base.ResponseData
-import br.com.renovar.apirenovar.configurations.AppCommons
 import br.com.renovar.apirenovar.domain.exceptions.SaveException
 import br.com.renovar.apirenovar.domain.pgreport.usecase.FindAllReportsByPgOrderByDateDescUseCase
 import br.com.renovar.apirenovar.domain.pgreport.usecase.SaveReportUseCase

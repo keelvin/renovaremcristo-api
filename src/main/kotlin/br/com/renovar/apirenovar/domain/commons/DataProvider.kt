@@ -1,7 +1,6 @@
 package br.com.renovar.apirenovar.domain.commons
 
 import br.com.renovar.apirenovar.domain.exceptions.SaveException
-import kotlin.jvm.Throws
 
 interface DataProvider<T: BaseEntity> {
     fun findAll(): List<T> {

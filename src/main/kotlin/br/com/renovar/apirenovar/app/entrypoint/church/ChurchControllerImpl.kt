@@ -1,9 +1,9 @@
 package br.com.renovar.apirenovar.app.entrypoint.church
 
+import br.com.renovar.apirenovar.app.commons.AppCommons
+import br.com.renovar.apirenovar.app.commons.ResponseData
 import br.com.renovar.apirenovar.app.entrypoint.church.converters.ChurchRestConverter
 import br.com.renovar.apirenovar.app.entrypoint.church.models.ChurchRestModel
-import br.com.renovar.apirenovar.base.ResponseData
-import br.com.renovar.apirenovar.configurations.AppCommons
 import br.com.renovar.apirenovar.domain.church.usecase.FindAllChurchesUseCase
 import br.com.renovar.apirenovar.domain.church.usecase.FindChurchByIdUseCase
 import org.springframework.beans.factory.annotation.Autowired

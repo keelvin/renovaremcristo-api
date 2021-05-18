@@ -11,7 +11,7 @@ import javax.persistence.*
 @Table(name = "network")
 class NetworkModel(
     @Id
-    @GenericGenerator(name = "NetworkGenerator", strategy = "br.com.renovar.apirenovar.base.PostgreSequenceStrategy", parameters = [
+    @GenericGenerator(name = "NetworkGenerator", strategy = "br.com.renovar.apirenovar.app.commons.PostgreSequenceStrategy", parameters = [
         Parameter(value = "network_seq", name = "sequence")
     ])
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NetworkGenerator")

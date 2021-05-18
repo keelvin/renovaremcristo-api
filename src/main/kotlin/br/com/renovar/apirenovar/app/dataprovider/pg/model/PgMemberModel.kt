@@ -2,7 +2,6 @@ package br.com.renovar.apirenovar.app.dataprovider.pg.model
 
 import br.com.renovar.apirenovar.app.commons.BaseModel
 import br.com.renovar.apirenovar.app.dataprovider.person.model.PersonModel
-import br.com.renovar.apirenovar.base.BaseEntity
 import com.fasterxml.jackson.annotation.JsonBackReference
 import com.fasterxml.jackson.annotation.JsonFormat
 import org.hibernate.annotations.GenericGenerator
@@ -14,7 +13,7 @@ import javax.persistence.*
 @Table(name = "pg_member")
 class PgMemberModel(
     @Id
-    @GenericGenerator(name = "PgMemberGenerator", strategy = "br.com.renovar.apirenovar.base.PostgreSequenceStrategy", parameters = [
+    @GenericGenerator(name = "PgMemberGenerator", strategy = "br.com.renovar.apirenovar.app.commons.PostgreSequenceStrategy", parameters = [
         Parameter(value = "pg_member_seq", name = "sequence")
     ])
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PgMemberGenerator")

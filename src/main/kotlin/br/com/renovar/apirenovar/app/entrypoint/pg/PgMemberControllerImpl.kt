@@ -1,9 +1,9 @@
 package br.com.renovar.apirenovar.app.entrypoint.pg
 
+import br.com.renovar.apirenovar.app.commons.AppCommons
+import br.com.renovar.apirenovar.app.commons.ResponseData
 import br.com.renovar.apirenovar.app.entrypoint.pg.converters.PgMemberRestConverter
 import br.com.renovar.apirenovar.app.entrypoint.pg.models.PgMemberRestModel
-import br.com.renovar.apirenovar.base.ResponseData
-import br.com.renovar.apirenovar.configurations.AppCommons
 import br.com.renovar.apirenovar.domain.exceptions.SaveException
 import br.com.renovar.apirenovar.domain.pg.usecase.pgmember.FindAllMembersByPgIdUseCase
 import br.com.renovar.apirenovar.domain.pg.usecase.pgmember.FindAllPgsByPersonIdUseCase

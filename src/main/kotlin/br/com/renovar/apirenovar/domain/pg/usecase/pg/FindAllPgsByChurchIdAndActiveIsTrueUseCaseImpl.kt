@@ -1,7 +1,6 @@
 package br.com.renovar.apirenovar.domain.pg.usecase.pg
 
 import br.com.renovar.apirenovar.domain.pg.dataprovider.PgDataProvider
-import br.com.renovar.apirenovar.domain.pg.entity.Pg
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
 import org.springframework.context.annotation.Scope

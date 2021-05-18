@@ -1,18 +1,18 @@
 package br.com.renovar.apirenovar.domain.pg.usecase.pgauth
 
-import br.com.renovar.apirenovar.base.toMd5
-import br.com.renovar.apirenovar.domain.commons.JWTUtils
+import br.com.renovar.apirenovar.domain.commons.toMd5
 import br.com.renovar.apirenovar.domain.pg.entity.PgAuthResponse
 import br.com.renovar.apirenovar.domain.pg.usecase.pgauth.exceptions.AuthFailedException
+import br.com.renovar.apirenovar.domain.security.usecase.GenerateTokenUseCase
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
 import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Component
-import kotlin.jvm.Throws
 
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 class PgAuthenticateUseCaseImpl constructor(
-    private val findPgAuthByLoginAndPasswordUseCase: FindPgAuthByLoginAndPasswordUseCase
+    private val findPgAuthByLoginAndPasswordUseCase: FindPgAuthByLoginAndPasswordUseCase,
+    private val generateTokenUseCase: GenerateTokenUseCase
 ) : PgAuthenticateUseCase {
 
     @Throws(exceptionClasses = [AuthFailedException::class])
@@ -22,7 +22,7 @@ class PgAuthenticateUseCaseImpl constructor(
         ) ?: throw AuthFailedException()
 
         return PgAuthResponse(
-            token = JWTUtils.newToken(pgAuth.pgId),
+            token = generateTokenUseCase.execute(pgAuth.pgId),
             pgId = pgAuth.pgId
         )
     }

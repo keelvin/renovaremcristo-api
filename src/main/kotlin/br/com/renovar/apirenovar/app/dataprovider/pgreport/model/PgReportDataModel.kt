@@ -10,7 +10,7 @@ import javax.persistence.*
 @Table(name = "pg_report_data")
 class PgReportDataModel(
     @Id
-    @GenericGenerator(name = "PgReportDataGenerator", strategy = "br.com.renovar.apirenovar.base.PostgreSequenceStrategy", parameters = [
+    @GenericGenerator(name = "PgReportDataGenerator", strategy = "br.com.renovar.apirenovar.app.commons.PostgreSequenceStrategy", parameters = [
         Parameter(value = "pg_report_data_seq", name = "sequence")
     ])
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PgReportDataGenerator")

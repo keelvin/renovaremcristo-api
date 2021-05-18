@@ -1,7 +1,6 @@
 package br.com.renovar.apirenovar.app.dataprovider.person.model
 
 import br.com.renovar.apirenovar.app.commons.BaseModel
-import br.com.renovar.apirenovar.base.BaseEntity
 import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.Table

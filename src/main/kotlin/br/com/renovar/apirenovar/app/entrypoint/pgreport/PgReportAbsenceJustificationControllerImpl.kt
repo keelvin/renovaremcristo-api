@@ -1,9 +1,9 @@
 package br.com.renovar.apirenovar.app.entrypoint.pgreport
 
+import br.com.renovar.apirenovar.app.commons.AppCommons
+import br.com.renovar.apirenovar.app.commons.ResponseData
 import br.com.renovar.apirenovar.app.entrypoint.pgreport.converters.PgReportAbsenceJustificationRestConverter
 import br.com.renovar.apirenovar.app.entrypoint.pgreport.models.PgReportAbsenceJustificationRestModel
-import br.com.renovar.apirenovar.base.ResponseData
-import br.com.renovar.apirenovar.configurations.AppCommons
 import br.com.renovar.apirenovar.domain.pgreport.usecase.FindAllAbsenceJustificationsUseCase
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
 import org.springframework.context.annotation.Scope

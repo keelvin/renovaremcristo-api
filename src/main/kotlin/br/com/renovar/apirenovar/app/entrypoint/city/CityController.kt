@@ -1,7 +1,7 @@
 package br.com.renovar.apirenovar.app.entrypoint.city
 
+import br.com.renovar.apirenovar.app.commons.ResponseData
 import br.com.renovar.apirenovar.app.entrypoint.city.models.CityRestModel
-import br.com.renovar.apirenovar.base.ResponseData
 import org.springframework.http.ResponseEntity
 
 interface CityController {

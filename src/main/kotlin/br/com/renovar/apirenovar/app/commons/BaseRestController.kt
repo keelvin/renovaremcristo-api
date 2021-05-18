@@ -1,6 +1,5 @@
 package br.com.renovar.apirenovar.app.commons
 
-import br.com.renovar.apirenovar.base.ResponseData
 import org.springframework.http.ResponseEntity
 
 interface BaseRestController<T: BaseRestModel, ID: Any> {

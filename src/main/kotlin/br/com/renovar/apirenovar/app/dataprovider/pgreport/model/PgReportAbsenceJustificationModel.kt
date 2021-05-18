@@ -10,7 +10,7 @@ import javax.persistence.*
 @Table(name = "pg_report_absence_justification")
 class PgReportAbsenceJustificationModel(
     @Id
-    @GenericGenerator(name = "PgReportMemberSituationGenerator", strategy = "br.com.renovar.apirenovar.base.PostgreSequenceStrategy", parameters = [
+    @GenericGenerator(name = "PgReportMemberSituationGenerator", strategy = "br.com.renovar.apirenovar.app.commons.PostgreSequenceStrategy", parameters = [
         Parameter(value = "pg_report_member_situation_seq", name = "sequence")
     ])
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PgReportMemberSituationGenerator")
