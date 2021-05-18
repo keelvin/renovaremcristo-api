@@ -24,7 +24,7 @@ class PgMemberModel(
     @JsonBackReference
     var pg: PgModel?,
     @Column(name = "pg_id") var pgId: Long,
-    @ManyToOne(fetch = FetchType.EAGER, cascade = [CascadeType.MERGE, CascadeType.ALL])
+    @ManyToOne(fetch = FetchType.EAGER, cascade = [CascadeType.MERGE, CascadeType.PERSIST])
     @JoinColumn(name = "person_id")
     var person: PersonModel,
     @ManyToOne(fetch = FetchType.EAGER)

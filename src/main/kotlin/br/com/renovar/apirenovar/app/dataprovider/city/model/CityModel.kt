@@ -13,7 +13,7 @@ class CityModel(
     @JoinColumn(name = "state_id")
     @JsonManagedReference
     var state: StateModel,
-    @OneToMany(cascade = [(CascadeType.ALL)], orphanRemoval = true)
+    @OneToMany(cascade = [(CascadeType.ALL)], orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id")
     val districts: MutableList<CityDistrictModel> = mutableListOf()
 ): BaseModel

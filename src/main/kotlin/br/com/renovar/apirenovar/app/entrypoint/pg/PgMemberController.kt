@@ -6,6 +6,6 @@ import br.com.renovar.apirenovar.base.ResponseData
 import org.springframework.http.ResponseEntity
 
 interface PgMemberController: BaseRestController<PgMemberRestModel, Long> {
-    fun findAllByPgId(pgId: Long): ResponseEntity<ResponseData<List<PgMemberRestModel>>>
-    fun findAllByPersonId(personId: Long): ResponseEntity<ResponseData<List<PgMemberRestModel>>>
+    fun findAllPgsByPersonId(personId: Long): ResponseEntity<ResponseData<List<PgMemberRestModel>>>
+    fun findAllMembersByPgId(pgId: Long): ResponseEntity<ResponseData<List<PgMemberRestModel>>>
 }

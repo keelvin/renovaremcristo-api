@@ -20,8 +20,8 @@ class WebConfigurer : WebMvcConfigurer {
         registry.addInterceptor(commonInterceptor)
 
         registry.addInterceptor(securityInterceptor)
-            .addPathPatterns("/api/**")
-            .excludePathPatterns("/api/security/authenticate")
+            .addPathPatterns("/api/v2/**")
+            .excludePathPatterns("/api/v2/security/authenticate")
     }
 
 }

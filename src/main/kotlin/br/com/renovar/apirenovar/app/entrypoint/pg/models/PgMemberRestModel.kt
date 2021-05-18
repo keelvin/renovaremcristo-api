@@ -13,7 +13,7 @@ class PgMemberRestModel(
     var pgId: Long = 0,
     var person: PersonRestModel,
     var type: PgMemberTypeRestModel,
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "America/Sao_Paulo")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "America/Sao_Paulo")
     @Temporal(value = TemporalType.DATE)
     var registeredAt: Date = Date()
 ) : BaseRestModel
