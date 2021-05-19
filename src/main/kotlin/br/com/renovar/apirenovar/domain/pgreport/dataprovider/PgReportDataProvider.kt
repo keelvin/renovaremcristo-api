@@ -9,4 +9,5 @@ interface PgReportDataProvider : DataProvider<PgReport> {
     fun findAllByDateBetween(initialDate: Date, finalDate: Date): List<PgReport>
     fun findAllByPgIdAndDateBetween(pgId: Long, initialDate: Date, finalDate: Date): List<PgReport>
     fun findAllByPgIdOrderByDateDesc(pgId: Long): List<PgReport>
+    fun findByPgIdAndDate(pgId: Long, date: Date): PgReport?
 }

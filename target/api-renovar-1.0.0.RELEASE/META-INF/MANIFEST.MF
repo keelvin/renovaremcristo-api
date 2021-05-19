@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: kelvin.vieira
+Build-Jdk: 15.0.2
+Implementation-Title: api-renovar
+Implementation-Version: 1.0.0.RELEASE
+Implementation-Vendor-Id: br.com.renovar
+Main-Class: ${start-class}
+

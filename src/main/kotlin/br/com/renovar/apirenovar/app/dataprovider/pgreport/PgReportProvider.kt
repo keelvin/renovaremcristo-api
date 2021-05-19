@@ -32,6 +32,10 @@ class PgReportProvider constructor(
         pgReportEntityConverter.mapToEntity(it)
     }
 
+    override fun findByPgIdAndDate(pgId: Long, date: Date) = pgReportRepository.findByPgIdAndDate(
+        pgId, date
+    )?.let { return@let pgReportEntityConverter.mapToEntity(it) }
+
     override fun save(obj: PgReport) = pgReportEntityConverter.mapToEntity(
         pgReportRepository.save(pgReportEntityConverter.mapToModel(obj))
     )

@@ -11,4 +11,5 @@ interface PgReportRepository : BaseRepository<PgReportModel, Long> {
     fun findAllByDateBetween(initialDate: Date, finalDate: Date): List<PgReportModel>
     fun findAllByPgIdAndDateBetween(pgId: Long, initialDate: Date, finalDate: Date): List<PgReportModel>
     fun findAllByPgIdOrderByDateDesc(pgId: Long): List<PgReportModel>
+    fun findByPgIdAndDate(pgId: Long, date: Date): PgReportModel?
 }

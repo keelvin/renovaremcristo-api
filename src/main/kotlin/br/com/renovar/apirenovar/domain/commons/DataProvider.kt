@@ -14,6 +14,7 @@ interface DataProvider<T: BaseEntity> {
     fun save(obj: T): T {
         throw RuntimeException("Não implementado")
     }
+
     fun delete(obj: T) {
         throw RuntimeException("Não implementado")
     }
