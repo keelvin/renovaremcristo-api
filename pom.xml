@@ -132,6 +132,7 @@
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
                     <execution>
+                        <id>webapp-runner</id>
                         <phase>package</phase>
                         <goals><goal>copy</goal></goals>
                         <configuration>
@@ -146,6 +147,7 @@
                         </configuration>
                     </execution>
                     <execution>
+                        <id>validate</id>
                         <phase>validate</phase>
                         <goals>
                             <goal>copy</goal>
