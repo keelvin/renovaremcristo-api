@@ -1,6 +1,7 @@
 package br.com.renovar.apirenovar.app.dataprovider.pg.model
 
 import br.com.renovar.apirenovar.app.commons.BaseModel
+import br.com.renovar.apirenovar.app.dataprovider.city.model.CityDistrictModel
 import com.fasterxml.jackson.annotation.JsonBackReference
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Parameter
@@ -21,5 +22,8 @@ class PgConfigurationModel(
     var pg: PgModel?,
     @Column(name = "day_of_week") var dayOfWeek: Int = DayOfWeek.MONDAY.value,
     var address: String = "",
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "district_id")
+    var district: CityDistrictModel,
     @Column(name = "image_id")var imageId: String? = null
 ): BaseModel

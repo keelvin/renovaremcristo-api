@@ -17,7 +17,7 @@ class PgReportModel(
     ])
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PgReportGenerator")
     var id: Long = 0,
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = [])
     @JoinColumn(name = "pg_id")
     var pg: PgModel,
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "America/Sao_Paulo")
