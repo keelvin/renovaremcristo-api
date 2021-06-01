@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface CityRepository : BaseRepository<CityModel, Long> {
-    fun findAllByNameIgnoreCaseContains(filter: String): List<CityModel>
+    fun findAllByNameIgnoreCaseContainsOrderByNameAsc(filter: String): List<CityModel>
+    fun findAllByOrderByNameAsc(): List<CityModel>
 }
 

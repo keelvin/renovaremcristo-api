@@ -3,7 +3,9 @@ package br.com.renovar.apirenovar.app.entrypoint.city
 import br.com.renovar.apirenovar.app.commons.AppCommons
 import br.com.renovar.apirenovar.app.commons.ResponseData
 import br.com.renovar.apirenovar.app.entrypoint.city.converters.CityRestConverter
+import br.com.renovar.apirenovar.app.entrypoint.city.converters.CityWithoutDistrictsRestConverter
 import br.com.renovar.apirenovar.app.entrypoint.city.models.CityRestModel
+import br.com.renovar.apirenovar.app.entrypoint.city.models.CityWithoutDistrictsRestModel
 import br.com.renovar.apirenovar.domain.city.usecase.FilterCityByNameUseCase
 import br.com.renovar.apirenovar.domain.city.usecase.FindAllCitiesUseCase
 import br.com.renovar.apirenovar.domain.city.usecase.FindCityByIdUseCase
@@ -24,15 +26,16 @@ class CityControllerImpl @Autowired constructor(
     private val findAllCitiesUseCase: FindAllCitiesUseCase,
     private val findCityByIdUseCase: FindCityByIdUseCase,
     private val filterCityByNameUseCase: FilterCityByNameUseCase,
-    private val cityRestConverter: CityRestConverter
+    private val cityRestConverter: CityRestConverter,
+    private val cityWithoutDistrictsRestConverter: CityWithoutDistrictsRestConverter
 ) : CityController {
 
     @GetMapping(value = ["/"], produces = [AppCommons.APPLICATION_JSON_UTF8])
-    override fun findAll(): ResponseEntity<ResponseData<List<CityRestModel>>> {
+    override fun findAll(): ResponseEntity<ResponseData<List<CityWithoutDistrictsRestModel>>> {
         val objs = findAllCitiesUseCase.execute()
 
         return ResponseEntity(
-            ResponseData.success(objs.map { cityRestConverter.mapToRestModel(it) }),
+            ResponseData.success(objs.map { cityWithoutDistrictsRestConverter.mapToRestModel(it) }),
             HttpStatus.OK
         )
     }
@@ -49,11 +52,11 @@ class CityControllerImpl @Autowired constructor(
     }
 
     @GetMapping(value = ["/filter/{name}"], produces = [AppCommons.APPLICATION_JSON_UTF8])
-    override fun filterByName(@PathVariable("name") name: String): ResponseEntity<ResponseData<List<CityRestModel>>> {
+    override fun filterByName(@PathVariable("name") name: String): ResponseEntity<ResponseData<List<CityWithoutDistrictsRestModel>>> {
         val objs = filterCityByNameUseCase.execute(name)
 
         return ResponseEntity(
-            ResponseData.success(objs.map { cityRestConverter.mapToRestModel(it) }),
+            ResponseData.success(objs.map { cityWithoutDistrictsRestConverter.mapToRestModel(it) }),
             HttpStatus.OK
         )
     }

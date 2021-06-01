@@ -19,10 +19,10 @@ class CityProvider @Autowired constructor(
         return@let cityEntityConverter.mapToEntity(it)
     }
 
-    override fun findAll() = cityRepository.findAll().map {
+    override fun findAll() = cityRepository.findAllByOrderByNameAsc().map {
         cityEntityConverter.mapToEntity(it)
     }
 
-    override fun filterByName(filter: String) = cityRepository.findAllByNameIgnoreCaseContains(filter)
+    override fun filterByName(filter: String) = cityRepository.findAllByNameIgnoreCaseContainsOrderByNameAsc(filter)
         .map { cityEntityConverter.mapToEntity(it)}
 }
