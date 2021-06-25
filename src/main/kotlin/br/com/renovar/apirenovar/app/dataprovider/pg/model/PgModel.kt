@@ -31,8 +31,7 @@ class PgModel(
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "pg_type_id")
     var pgType: PgTypeModel,
-    @OneToOne(cascade = [CascadeType.ALL])
-    @JoinColumn(name = "id", referencedColumnName = "pg_id")
+    @OneToOne(cascade = [CascadeType.ALL], mappedBy = "pg", fetch = FetchType.LAZY, optional = false)
     @JsonManagedReference
     var configuration: PgConfigurationModel,
     @OneToMany(cascade = [CascadeType.REFRESH], fetch = FetchType.LAZY, targetEntity = PgMemberModel::class)

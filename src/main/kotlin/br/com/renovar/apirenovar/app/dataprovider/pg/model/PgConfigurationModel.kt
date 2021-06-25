@@ -17,7 +17,8 @@ class PgConfigurationModel(
     ])
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PgConfigurationGenerator")
     var id: Long = 0,
-    @OneToOne(mappedBy = "configuration")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pg_id")
     @JsonBackReference
     var pg: PgModel?,
     @Column(name = "day_of_week") var dayOfWeek: Int = DayOfWeek.MONDAY.value,
