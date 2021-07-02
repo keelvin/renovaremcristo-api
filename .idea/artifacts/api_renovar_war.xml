@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="api-renovar-1.0.0.RELEASE.war">
+    <root id="archive" name="api-renovar-1.1.0.RELEASE.war">
       <element id="artifact" artifact-name="api-renovar:war exploded" />
     </root>
   </artifact>

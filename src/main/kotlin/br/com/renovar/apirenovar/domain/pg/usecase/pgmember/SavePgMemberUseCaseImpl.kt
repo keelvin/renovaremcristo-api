@@ -10,11 +10,14 @@ import org.springframework.stereotype.Component
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 class SavePgMemberUseCaseImpl constructor(
-    private val pgMemberDataProvider: PgMemberDataProvider
+    private val pgMemberDataProvider: PgMemberDataProvider,
+    private val validatePgMemberUseCase: ValidatePgMemberUseCase
 ): SavePgMemberUseCase {
     @Throws(exceptionClasses = [SaveException::class])
     override fun execute(obj: PgMember): PgMember {
         try {
+            validatePgMemberUseCase.execute(obj)
+
             return pgMemberDataProvider.save(obj)
         } catch(e: Exception) {
             throw SaveException(e.message, e)

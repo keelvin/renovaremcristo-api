@@ -22,7 +22,23 @@ class PgMemberProvider constructor(
         pgMemberEntityConverter.mapToEntity(it)
     }
 
+    override fun findMemberByEmailOrPhone(email: String, phone: String) = pgMemberRepository.findMemberByEmailOrPhone(email, phone)?.let {
+        pgMemberEntityConverter.mapToEntity(it)
+    }
+
+    override fun findMemberByPhone(phone: String) = pgMemberRepository.findMemberByPhone(phone)?.let {
+        pgMemberEntityConverter.mapToEntity(it)
+    }
+
+    override fun findMemberByEmail(email: String) = pgMemberRepository.findMemberByEmail(email)?.let {
+        pgMemberEntityConverter.mapToEntity(it)
+    }
+
     override fun save(obj: PgMember) = pgMemberEntityConverter.mapToEntity(
         pgMemberRepository.save(pgMemberEntityConverter.mapToModel(obj))
     )
+
+    override fun findById(id: Long) = pgMemberRepository.findById(id).orElse(null)?.let {
+        pgMemberEntityConverter.mapToEntity(it)
+    }
 }

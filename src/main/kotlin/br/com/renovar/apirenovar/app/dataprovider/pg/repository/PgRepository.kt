@@ -2,6 +2,7 @@ package br.com.renovar.apirenovar.app.dataprovider.pg.repository
 
 import br.com.renovar.apirenovar.app.commons.BaseRepository
 import br.com.renovar.apirenovar.app.dataprovider.pg.model.PgModel
+import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -19,5 +20,6 @@ interface PgRepository: BaseRepository<PgModel, Long> {
     fun findAllByPgTypeIdAndNetworkId(pgTypeId: Long, networkId: Long): List<PgModel>
     fun findAllByPgTypeIdAndChurchId(pgTypeId: Long, churchId: Long): List<PgModel>
     fun findAllByActiveIsTrue(): List<PgModel>
+
 
 }
