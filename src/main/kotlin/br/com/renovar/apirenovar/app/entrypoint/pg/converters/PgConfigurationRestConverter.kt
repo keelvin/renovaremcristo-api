@@ -18,7 +18,7 @@ class PgConfigurationRestConverter constructor(
         dayOfWeek = obj.dayOfWeek,
         address = obj.address,
         imageId = obj.imageId,
-        district = districtRestConverter.mapToRestModel(obj.district)
+        district = if (obj.district == null) null else districtRestConverter.mapToRestModel(obj.district!!)
     )
 
     override fun mapToEntity(obj: PgConfigurationRestModel) = PgConfiguration(
@@ -27,6 +27,6 @@ class PgConfigurationRestConverter constructor(
         address = obj.address,
         imageId = obj.address,
         pg = null,
-        district = districtRestConverter.mapToEntity(obj.district)
+        district = if (obj.district == null) null else districtRestConverter.mapToEntity(obj.district!!)
     )
 }

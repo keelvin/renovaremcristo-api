@@ -9,5 +9,5 @@ class PgConfigurationRestModel(
     var dayOfWeek: Int = DayOfWeek.MONDAY.value,
     var address: String = "",
     var imageId: String? = null,
-    var district: DistrictRestModel
+    var district: DistrictRestModel?
 ) : BaseRestModel

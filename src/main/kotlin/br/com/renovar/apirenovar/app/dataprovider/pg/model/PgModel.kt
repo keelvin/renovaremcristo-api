@@ -2,6 +2,7 @@ package br.com.renovar.apirenovar.app.dataprovider.pg.model
 
 import br.com.renovar.apirenovar.app.commons.BaseModel
 import br.com.renovar.apirenovar.app.dataprovider.church.model.ChurchModel
+import br.com.renovar.apirenovar.app.dataprovider.city.model.CityDistrictModel
 import br.com.renovar.apirenovar.app.dataprovider.city.model.CityModel
 import com.fasterxml.jackson.annotation.JsonManagedReference
 import org.hibernate.annotations.GenericGenerator
@@ -31,13 +32,18 @@ class PgModel(
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "pg_type_id")
     var pgType: PgTypeModel,
-    @OneToOne(cascade = [CascadeType.ALL], mappedBy = "pg", fetch = FetchType.LAZY, optional = false)
-    @JsonManagedReference
-    var configuration: PgConfigurationModel,
     @OneToMany(cascade = [CascadeType.REFRESH], fetch = FetchType.LAZY, targetEntity = PgMemberModel::class)
     @JoinColumn(name = "pg_id", referencedColumnName = "id", insertable = false, updatable = false)
     @JsonManagedReference
     val members: MutableList<PgMemberModel> = mutableListOf(),
     @Type(type = "org.hibernate.type.NumericBooleanType")
-    var active: Boolean = true
-): BaseModel
+    var active: Boolean = true,
+    @Column(name = "day_of_week")
+    var dayOfWeek: Int = 1,
+    @Column
+    var address: String = "",
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "district_id")
+    var district: CityDistrictModel? = null
+
+    ): BaseModel

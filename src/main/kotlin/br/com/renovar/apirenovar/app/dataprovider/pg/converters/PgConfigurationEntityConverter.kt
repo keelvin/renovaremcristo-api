@@ -19,7 +19,7 @@ class PgConfigurationEntityConverter constructor(
         dayOfWeek = obj.dayOfWeek,
         imageId = obj.imageId,
         pg = null,
-        district = cityDistrictEntityConverter.mapToModel(obj.district)
+        district = cityDistrictEntityConverter.mapToModel(obj.district!!)
     )
 
     override fun mapToEntity(obj: PgConfigurationModel) = PgConfiguration(

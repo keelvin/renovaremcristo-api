@@ -10,5 +10,5 @@ class PgConfiguration(
     var address: String = "",
     var dayOfWeek: Int = DayOfWeek.MONDAY.value,
     var imageId: String? = null,
-    var district: District
+    var district: District?
 ) : BaseEntity

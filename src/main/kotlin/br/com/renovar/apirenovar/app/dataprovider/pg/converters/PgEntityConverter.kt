@@ -2,9 +2,11 @@ package br.com.renovar.apirenovar.app.dataprovider.pg.converters
 
 import br.com.renovar.apirenovar.app.commons.EntityConverter
 import br.com.renovar.apirenovar.app.dataprovider.church.converters.ChurchEntityConverter
+import br.com.renovar.apirenovar.app.dataprovider.city.converters.CityDistrictEntityConverter
 import br.com.renovar.apirenovar.app.dataprovider.city.converters.CityEntityConverter
 import br.com.renovar.apirenovar.app.dataprovider.pg.model.PgModel
 import br.com.renovar.apirenovar.domain.pg.entity.Pg
+import br.com.renovar.apirenovar.domain.pg.entity.PgConfiguration
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
 import org.springframework.context.annotation.Scope
@@ -17,8 +19,8 @@ class PgEntityConverter @Autowired constructor(
     private val churchEntityConverter: ChurchEntityConverter,
     private val cityEntityConverter: CityEntityConverter,
     private val pgTypeEntityConverter: PgTypeEntityConverter,
-    private val pgConfigurationEntityConverter: PgConfigurationEntityConverter,
-    private val pgMemberEntityConverter: PgMemberEntityConverter
+    private val pgMemberEntityConverter: PgMemberEntityConverter,
+    private val cityDistrictEntityConverter: CityDistrictEntityConverter
 ) : EntityConverter<PgModel, Pg> {
     override fun mapToModel(obj: Pg) = PgModel(
         id = obj.id,
@@ -27,7 +29,9 @@ class PgEntityConverter @Autowired constructor(
         church = churchEntityConverter.mapToModel(obj.church),
         city = cityEntityConverter.mapToModel(obj.city),
         pgType = pgTypeEntityConverter.mapToModel(obj.pgType),
-        configuration = pgConfigurationEntityConverter.mapToModel(obj.configuration),
+        address = obj.configuration.address,
+        district = if (obj.configuration.district == null) null else this.cityDistrictEntityConverter.mapToModel(obj.configuration.district!!),
+        dayOfWeek = obj.configuration.dayOfWeek,
         members = obj.members.map { pgMemberEntityConverter.mapToModel(it) }.toMutableList(),
         active = obj.active
     )
@@ -39,7 +43,14 @@ class PgEntityConverter @Autowired constructor(
         church = churchEntityConverter.mapToEntity(obj.church),
         city = cityEntityConverter.mapToEntity(obj.city),
         pgType = pgTypeEntityConverter.mapToEntity(obj.pgType),
-        configuration = pgConfigurationEntityConverter.mapToEntity(obj.configuration),
+        configuration = PgConfiguration(
+            id = 0L,
+            pg = null,
+            address = obj.address,
+            dayOfWeek = obj.dayOfWeek,
+            imageId = null,
+            district = if (obj.district != null) cityDistrictEntityConverter.mapToEntity(obj.district!!) else null
+        ),
         members = obj.members.map { pgMemberEntityConverter.mapToEntity(it) }.toMutableList(),
         active = obj.active
     )
